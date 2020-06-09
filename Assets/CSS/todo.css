@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Serif&display=swap');
 
+
 /* Body style */
-body{
+html,body{
+  min-width : 1224px;
   background-color:grey;
-  height: 100%;
+
 }
-
-
 /* Nav bar*/
 header{
   background: teal;
- 
+  width: 100%;
+ display: flex;
 }
 
 /* NavBar clearfix */
@@ -23,40 +24,44 @@ header::after {
 /* Nav bar image */
 .logo {
   float: left;
+  width: 300px;
+  height: 60px;
   
 }
 /* Navbar whole list */
-nav {
-  float: right;
-  
+nav{
+  width: 100%;
+ 
 }
 /* Navbar text position style over header*/
 nav ul {
-
-  padding: 0px;
+  margin-right: 20px;
   list-style: none;
   font-weight: bold;
+  float: right;
+  position: static;
 }
 
  /* Navbar text block style */
-nav li {
-  display: inline-block;
-margin-right: 135px;
-  padding-top:20px;
-font-family: "PT Serif", serif;
-  position: relative;
+nav li{
+  display: inline;
 }
 /* Navbar title hyperlinks */
 nav ul a {
   color: white;
-    text-decoration:none;
+  text-decoration:none;
   text-transform:uppercase;
   font-size: 18px;
   font-weight:bold;
+  position: static;
+  padding:20px;
+  font-family: "PT Serif", serif;
+
 }
 /* Navbar link hover */
 nav a:hover {
   color: black;
+  
 }
 
 /* Hero image position/style */
@@ -65,8 +70,10 @@ nav a:hover {
     background-repeat: no-repeat;
     padding-top: 100px;
     padding-bottom: 100px;
-    margin-top: 5px;
-  margin-left: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -160,49 +167,65 @@ nav a:hover {
 
 
 /*Footer Div container*/
-footer {
-  display:block;
-  background-color: teal;
-  position: relative;
-  bottom: 0;
+
+.footer{
   width: 100%;
-  margin-top:100px;
-  
-  /*clearfix*/
-  clear:both
-}
-footer::after {
-  content: '';
-  display: table;
-  clear: both;
+  display:grid;
+  background-color: teal;
+ grid-template-columns:  1fr 1fr 1fr 1fr;
+ grid-template-rows: 140px;
+ grid-template-areas:
+ ". social social ."
+ ;
 }
 
-.social  {
-    text-decoration: none;
-    text-align: center;    
-    margin-right: 400px;
-  padding-top: 5px;
+
+.social {
+  display:grid;
+  grid-area: social;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 30px 50px;
+  grid-template-areas: 
+  "fb ig tw"
+  "copyright copyright copyright ";
 }
 
-footer ul {
-  padding: 0;
-  list-style: none;
-  font-family: "PT Serif", serif;
-  font-weight: bold;
-}
-/*icon position*/
-.social ul li{
-  display: inline-block;
-  margin-right: 50px;
-  position: relative;
+.facebook {
+  margin-top: 10px;
+  display: grid;
+  grid-area: fb;
+  justify-content: center;
 }
 
+.twitter {
+  margin-top: 10px;
+  display: grid;
+  grid-area: tw;
+  justify-content: center;
+}
+
+.instagram {
+  margin-top: 10px;
+  display: grid;
+  grid-area: ig;
+  justify-content: center;
+}
 
 /*copyright style*/
 .copyright{
   text-align: center;
   color: white;
-  margin-top:20px;
-  margin-right:320px;
+  display: grid;
+  grid-area: copyright;
     
+}
+
+@media only screen and (max-width:800){
+
+  html,body{
+    background-color:grey;
+    width: 100%;
+    width: 800px;
+  }
+
 }
